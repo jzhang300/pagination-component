@@ -1,0 +1,15 @@
+@import "./base";
+@import "./Pagination";
+
+// merge request trigger
+/* a11yText *****************************/
+/****************************************/
+.icl-a11yText {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 0.25px;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 0.25px;
+}

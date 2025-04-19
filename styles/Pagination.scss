@@ -1,0 +1,243 @@
+@import "node_modules/@indeed/frontend-style-janus/src/helpers/px-to-rem";
+@import "node_modules/@indeed/frontend-style-janus/src/foundations/Typography/index";
+@import "node_modules/@indeed/frontend-style-janus/src/helpers/breakpoints/main";
+
+// Using a container to guard the pagination against external layout systems
+// so that unintentional auto-stretching of pagination width doesn't happen.
+.icl-Pagination {
+  display: block;
+}
+
+.icl-Pagination--hasBorder {
+  .icl-Pagination-nav {
+    border: 0.125em solid #ececec;
+  }
+  .icl-Pagination-slot:focus {
+    box-shadow: inset 0 0 0 convert-px-to-rem(2px) #085ff7;
+  }
+  .icl-Pagination-slot--sm .icl-Pagination-slotInner {
+    min-width: convert-px-to-rem(24px);
+    height: convert-px-to-rem(24px);
+    width: auto;
+  }
+  .icl-Pagination-slot--md .icl-Pagination-slotInner {
+    min-width: convert-px-to-rem(32px);
+    height: convert-px-to-rem(32px);
+    width: auto;
+  }
+  .icl-Pagination-slot:focus .icl-Pagination-slotInner,
+  .icl-Pagination-slot:hover .icl-Pagination-slotInner {
+    box-shadow: none;
+  }
+  .icl-Pagination-page {
+    padding: 0 convert-px-to-rem(4px);
+  }
+}
+
+.icl-Pagination-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: convert-px-to-rem(4px);
+
+  @include media-query(sm) {
+    display: inline-flex;
+  }
+}
+
+.icl-Pagination-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.icl-Pagination-listItem {
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @include media-query(sm) {
+    width: auto;
+    display: inline-flex;
+  }
+}
+
+.icl-Pagination-listItem--first,
+.icl-Pagination-listItem--last {
+  width: 50%;
+  position: relative;
+  display: flex;
+
+  .icl-Pagination-slot {
+    width: 100%;
+  }
+  .icl-Pagination--hasBorder & .icl-Pagination-slot--md .icl-Pagination-slotInner {
+    width: 100%;
+  }
+
+  @include media-query(sm) {
+    width: auto;
+    display: inline-flex;
+  }
+}
+.icl-Pagination--hasBorder .icl-Pagination-listItem--first {
+  border-right: 0.125em solid #ececec;
+  @include media-query(sm) {
+    border: none;
+  }
+}
+
+// .icl-Pagination-listItem--first .icl-Pagination-slot:focus &,
+// .icl-Pagination-listItem--first .icl-Pagination-slot:hover & {
+//   text-decoration: underline;
+//   background-color: #f6f6f6;
+//   box-shadow: inset 0 0 0 convert-px-to-rem(2px) #085ff7;
+// }
+//
+// .icl-Pagination-listItem--last .icl-Pagination-slot:focus &,
+// .icl-Pagination-listItem--last .icl-Pagination-slot:hover & {
+//   text-decoration: underline;
+//   background-color: #f6f6f6;
+//   box-shadow: inset 0 0 0 convert-px-to-rem(2px) #085ff7;
+// }
+
+.icl-Pagination-slot {
+  @include set-type-stack;
+  border: none;
+  align-items: center;
+  border-radius: convert-px-to-rem(2px);
+  color: black;
+  cursor: pointer;
+  display: flex;
+  font-size: convert-px-to-rem(14px);
+  line-height: 1.2;
+  height: convert-px-to-rem(32px);
+  justify-content: center;
+  min-width: convert-px-to-rem(32px);
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+  width: auto;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.icl-Pagination-slot--sm {
+  font-size: convert-px-to-rem(14px);
+  height: convert-px-to-rem(32px);
+  min-width: convert-px-to-rem(32px);
+}
+
+.icl-Pagination-slot--md {
+  font-size: convert-px-to-rem(18px);
+  height: convert-px-to-rem(40px);
+  min-width: convert-px-to-rem(40px);
+}
+
+// current page is selected
+.icl-Pagination-slot--current {
+  color: #000;
+  font-weight: 700;
+
+  & .icl-Pagination-slotInner {
+    background-color: #f6f6f6;
+  }
+}
+
+.icl-Pagination-slotInner {
+  border-radius: convert-px-to-rem(2px);
+  min-width: initial;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+
+  .icl-Pagination-slot:focus &,
+  .icl-Pagination-slot:hover & {
+    text-decoration: underline;
+    background-color: #f6f6f6;
+    box-shadow: inset 0 0 0 convert-px-to-rem(2px) #085ff7;
+  }
+}
+
+.icl-Pagination-page {
+  display: none;
+  padding: 0;
+
+  @include media-query(sm) {
+    display: flex;
+  }
+}
+
+.icl-Pagination-pageInner {
+  padding: 0 convert-px-to-rem(4px);
+}
+
+.icl-Pagination-ellipses {
+  cursor: default;
+  display: none;
+
+  @include media-query(sm) {
+    display: flex;
+  }
+}
+.icl-Pagination-slot--sm.icl-Pagination-ellipses--double {
+  width: convert-px-to-rem(64px);
+}
+.icl-Pagination-slot--md.icl-Pagination-ellipses--double {
+  width: convert-px-to-rem(80px);
+}
+
+.icl-Pagination-arrow {
+  width: 50%;
+  padding: 0;
+  position: relative;
+
+  .icl-Pagination-arrowInner {
+    width: 100%;
+    min-width: auto;
+  }
+
+  @include media-query(sm) {
+    width: auto;
+  }
+}
+
+.icl-Pagination--hasBorder .icl-Pagination-arrow {
+  padding: 0 convert-px-to-rem(4px);
+  @include media-query(sm) {
+    &.icl-Pagination-slot--sm .icl-Pagination-arrowInner {
+      height: convert-px-to-rem(24px);
+      min-width: convert-px-to-rem(24px);
+      width: auto;
+    }
+    &.icl-Pagination-slot--md .icl-Pagination-arrowInner {
+      height: convert-px-to-rem(32px);
+      min-width: convert-px-to-rem(32px);
+      width: auto;
+    }
+  }
+}
+
+.icl-Pagination-arrow--disabled {
+  opacity: 0.15;
+  pointer-events: none;
+
+  .icl-Pagination--hasBorder &.icl-Pagination-slot:hover,
+  .icl-Pagination--hasBorder &.icl-Pagination-slot:focus {
+    box-shadow: none;
+  }
+  &.icl-Pagination-slot:focus .icl-Pagination-slotInner,
+  &.icl-Pagination-slot:hover .icl-Pagination-slotInner {
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
